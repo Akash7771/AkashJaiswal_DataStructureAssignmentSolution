@@ -55,7 +55,7 @@ public class SkyScraperConstruction {
                 inventoryOfFloors.remove(toDelete);
             }
             /*
-            commenting this logic as can't construct a floor if its not constructed.
+            commenting this logic as can't construct if floors are not constructed.
                 //print all floor as all floors are constructed
                 if(floorSizeQueue.isEmpty()){
                     for(Integer finised : inventoryOfFloors)
