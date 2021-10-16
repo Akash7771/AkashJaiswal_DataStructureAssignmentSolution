@@ -1,6 +1,5 @@
 package com.greatlearning.ques1;
 
-
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
