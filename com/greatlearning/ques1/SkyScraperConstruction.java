@@ -1,5 +1,6 @@
 package com.greatlearning.ques1;
 
+
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -30,8 +31,8 @@ public class SkyScraperConstruction {
         Integer day = 0;
 
         LinkedList<Integer> inventoryOfFloors = new LinkedList<>();
-        Integer lastFloor = sortedFloorSize.getFirst();
-        boolean lastFloorPrinted = false;
+        Integer firstFloor = sortedFloorSize.getFirst();
+        boolean isFirstFloorPrinted = false;
         Integer printedFloor = -1;
 
         System.out.println("The order of construction is as follows");
@@ -43,11 +44,11 @@ public class SkyScraperConstruction {
             List<Integer> delete = new ArrayList<>();
             for(Integer inventoryFloorSize : inventoryOfFloors){
                 if(inventoryFloorSize.compareTo(floorSize) >=0  ){
-                    if( (!lastFloorPrinted && lastFloor == inventoryFloorSize ) || ( lastFloorPrinted && (printedFloor==-1 || printedFloor-1 == inventoryFloorSize) ) ) {
+                    if( (!isFirstFloorPrinted && firstFloor == inventoryFloorSize ) || ( isFirstFloorPrinted && (printedFloor==-1 || printedFloor-1 == inventoryFloorSize) ) ) {
                         System.out.print(inventoryFloorSize + separator);
                         delete.add(inventoryFloorSize);
                         printedFloor = inventoryFloorSize;
-                        lastFloorPrinted=true;
+                        isFirstFloorPrinted=true;
                     }
                 }
             }
@@ -55,7 +56,7 @@ public class SkyScraperConstruction {
                 inventoryOfFloors.remove(toDelete);
             }
             /*
-            commenting this logic as can't construct if floors are not constructed.
+            commenting this logic as can't construct a floor if its not constructed.
                 //print all floor as all floors are constructed
                 if(floorSizeQueue.isEmpty()){
                     for(Integer finised : inventoryOfFloors)
